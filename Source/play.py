@@ -69,44 +69,69 @@ async def close_panel(_, CallbackQuery):
 
 
 async def join_assistant(client, chat_id, message_id, userbot, file_path):
-    join = False
+    join = None
     try:
-        user = userbot.me
-        user_full = await client.get_users(user.id)  # استخدم دائمًا ID وليس username
-
-        # تحقق من عضوية المساعد
         try:
-            member = await client.get_chat_member(chat_id, user_full.id)
-            if member.status == "banned":
-                await client.send_message(
-                    chat_id,
-                    f"❌ الحساب المساعد محظور في المجموعة\n↳ @{user.username or user.id}",
-                    reply_to_message_id=message_id
-                )
-                return False
-        except:
-            # لم يكن عضوًا أصلاً
-            chat = await client.get_chat(chat_id)
-            invitelink = chat.invite_link or await client.export_chat_invite_link(chat_id)
-            if invitelink.startswith("https://t.me/+"):
-                invitelink = invitelink.replace("https://t.me/+", "https://t.me/joinchat/")
+            user = userbot.me
+            user_id = user.username if user.username else user.user_id
+            user_full = await client.get_users(user_id)
+            get = await client.get_chat_member(chat_id, user_full.id)
+        except ChatAdminRequired:
+            await client.send_message(chat_id, f"**≭︰ارفع البوت ادمن اولا**", reply_to_message_id=message_id)
+        if get.status == ChatMemberStatus.BANNED:
+            await client.send_message(chat_id,
+                                      f"≭︰الغي الحظر عن المساعد لتتمكن من التشغيل\n≭︰الحساب المساعد ↫ ❲ @{user.username} ❳",
+                                      reply_to_message_id=message_id)
+        else:
+            join = True
+    except UserNotParticipant:
+        chat = await client.get_chat(chat_id)
+        if chat.username:
             try:
+                await userbot.join_chat(chat.username)
+                join = True
+            except UserAlreadyParticipant:
+                join = True
+            except Exception:
+                try:
+                    invitelink = (await client.export_chat_invite_link(chat_id))
+                    if invitelink.startswith("https://t.me/+"):
+                        invitelink = invitelink.replace("https://t.me/+", "https://t.me/joinchat/")
+                    await asyncio.sleep(3)
+                    await userbot.join_chat(invitelink)
+                    join = True
+                except ChatAdminRequired:
+                    return await client.send_message(chat_id, f"**≭︰اعطي البوت صلاحيه دعوه مستخدمين عبر الرابط**",
+                                                     reply_to_message_id=message_id)
+                except Exception as e:
+                    await client.send_message(chat_id, f"**≭︰حدثت مشكله جرب مره اخرى او تواصل مع المطور**",
+                                              reply_to_message_id=message_id)
+        else:
+            try:
+                try:
+                    invitelink = chat.invite_link
+                    if invitelink is None:
+                        invitelink = (await client.export_chat_invite_link(chat_id))
+                except Exception:
+                    try:
+                        invitelink = (await client.export_chat_invite_link(chat_id))
+                    except ChatAdminRequired:
+                        await client.send_message(chat_id, f"**≭︰اعطي البوت صلاحيه دعوه مستخدمين عبر الرابط**",
+                                                  reply_to_message_id=message_id)
+                    except Exception as e:
+                        await client.send_message(chat_id, f"**≭︰حدثت مشكله جرب مره اخرى او تواصل مع المطور**",
+                                                  reply_to_message_id=message_id)
+                m = await client.send_message(chat_id, "**≭︰جاري تفعيل البوت**")
+                if invitelink.startswith("https://t.me/+"):
+                    invitelink = invitelink.replace("https://t.me/+", "https://t.me/joinchat/")
                 await userbot.join_chat(invitelink)
                 join = True
+                await m.edit(f"≭︰انضم الحساب المساعد\n≭︰بدء تشغيل الموسيقى \n≭︰الحساب المساعد ↫❲[ {user.mention} ]❳")
+            except UserAlreadyParticipant:
+                join = True
             except Exception as e:
-                await client.send_message(
-                    chat_id,
-                    f"❌ فشل الانضمام: {e}",
-                    reply_to_message_id=message_id
-                )
-                return False
-
-        join = True
-
-    except Exception as e:
-        await client.send_message(chat_id, f"❌ حدث خطأ: {e}", reply_to_message_id=message_id)
-        return False
-
+                await client.send_message(chat_id, f"**≭︰حدثت مشكله جرب مره اخرى او تواصل مع المطور**",
+                                          reply_to_message_id=message_id)
     return join
 
 

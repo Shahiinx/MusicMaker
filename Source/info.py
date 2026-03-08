@@ -47,7 +47,7 @@ def change_image_size(maxWidth, maxHeight, image):
     return newImage
 
 ouos = PHOTO
-cookies_file = "/root/cookies/cookies.txt"
+cookies_file = "cookies/cookies.txt"
 
 async def get_user_image(user_id, client):
     try:
@@ -386,7 +386,7 @@ async def download(bot_username: str, link: str, video: Union[bool, str] = None)
         try:
             proc = await asyncio.create_subprocess_exec(
                 "yt-dlp", "-g", "-f", "best[height<=?720][width<=?1280]", link,
-                "--cookies", cookies_file,
+                "--cookies.txt", cookies_file,
                 stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
             stdout, stderr = await proc.communicate()

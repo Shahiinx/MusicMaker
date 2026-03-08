@@ -248,7 +248,7 @@ async def play(client: Client, message):
 
     bot_username = client.me.username
     chat_id = message.chat.id
-    user_id = message.from_user.id if message.from_user else "ss0us"
+    user_id = message.from_user.id if message.from_user else "levvoid"
     message_id = message.id
     Source = message
     ch = await get_channel(bot_username)

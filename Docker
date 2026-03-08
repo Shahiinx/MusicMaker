@@ -8,6 +8,6 @@ WORKDIR /app
 COPY . /app
 
 RUN pip install --upgrade pip
-RUN pip install -r req.txt
+RUN pip install -r requirments.txt
 
 CMD ["python3", "main.py"]

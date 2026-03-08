@@ -6,11 +6,7 @@ RUN apt install ffmpeg -y
 
 
 RUN apt-get install -y nodejs
-RUN npm i -g npm
 
-RUN mkdir /app/
-COPY . /app
-WORKDIR /app
 
 RUN pip3 install --upgrade pip
 RUN pip3 install -U -r requirements.txt

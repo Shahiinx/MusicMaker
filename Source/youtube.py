@@ -96,7 +96,12 @@ async def downloaded(client: Client, message: Message):
             'noplaylist': True,
             'quiet': True,
             'cookiefile': cookies_file,
-            'merge_output_format': 'mp4' if is_video else None
+            'merge_output_format': 'mp4' if is_video else None,
+            'extractor_args':{
+                'youtube': {
+                    'player_client':['android']
+                }
+            }
         }
 
         loop = asyncio.get_running_loop()

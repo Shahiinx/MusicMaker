@@ -9,7 +9,7 @@ from pyrogram.types import Message
 from pyrogram.enums import ChatType
 from youtube_search import YoutubeSearch
 
-cookies_file = "../cookies/cookies.txt"
+cookies_file = "cookies/cookies.txt"
 downloads_path = "downloads"
 os.makedirs(downloads_path, exist_ok=True)
 default_thumb_path = "./Shahin/default.jpg"

@@ -47,7 +47,7 @@ def change_image_size(maxWidth, maxHeight, image):
     return newImage
 
 ouos = PHOTO
-cookies_file = "cookies/cookies.txt"
+cookies_file = "./cookies/cookies.txt"
 
 async def get_user_image(user_id, client):
     try:

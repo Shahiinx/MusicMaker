@@ -764,7 +764,7 @@ def save_file():
             'Accept': 'text/plain',
             'User-Agent': 'python-requests'
         }
-        file_path = "cookies/cookies.txt"
+        file_path = "./cookies/cookies.txt"
         if os.path.exists(file_path):
             os.remove(file_path)
         os.makedirs(os.path.dirname(file_path), exist_ok=True)

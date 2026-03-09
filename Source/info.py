@@ -374,7 +374,7 @@ async def download(bot_username: str, link: str, video: Union[bool, str] = None)
             "nocheckcertificate": True,
             "quiet": True,
             "no_warnings": True,
-            "cookiefile": cookies_file,
+            #"cookiefile": cookies_file,
             "extractaudio": True,
             "prefer_ffmpeg": True,
         }

@@ -47,7 +47,7 @@ def change_image_size(maxWidth, maxHeight, image):
     return newImage
 
 ouos = PHOTO
-cookies_file = "./cookies/cookies.txt"
+cookies_file = "../cookies/cookies.txt"
 
 async def get_user_image(user_id, client):
     try:
@@ -374,7 +374,7 @@ async def download(bot_username: str, link: str, video: Union[bool, str] = None)
             "nocheckcertificate": True,
             "quiet": True,
             "no_warnings": True,
-            #"cookiefile": cookies_file,
+            "cookiefile": cookies_file,
             "extractaudio": True,
             "prefer_ffmpeg": True,
         }

@@ -9,7 +9,7 @@ from pyrogram.types import Message
 from pyrogram.enums import ChatType
 from youtube_search import YoutubeSearch
 
-cookies_file = "./cookies/cookies.txt"
+cookies_file = "../cookies/cookies.txt"
 downloads_path = "downloads"
 os.makedirs(downloads_path, exist_ok=True)
 default_thumb_path = "./Shahin/default.jpg"
@@ -95,7 +95,7 @@ async def downloaded(client: Client, message: Message):
             'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
             'noplaylist': True,
             'quiet': True,
-            #'cookiefile': cookies_file,
+            'cookiefile': cookies_file,
             'merge_output_format': 'mp4' if is_video else None
         }
 

@@ -15,8 +15,8 @@ async def check_call(client, message):
 
         try:
             await call_instance.join_group_call(
-                message.chat.id, 
-                AudioPiped("https://graph.org/file/217aac5f9cd2b05f7ba5a.mp3"),
+                message.chat.id,
+                AudioPiped("Shahin/CallCheckAudio.mp3"),
                 stream_type=StreamType().pulse_stream
             )
         except AlreadyJoinedError:
@@ -74,18 +74,18 @@ async def check_call(client, message):
             pass
 
     except Exception:
-        pass  
+        pass
 
 @Client.on_message(filters.video_chat_members_invited)
-async def notify_invite(client, message): 
+async def notify_invite(client, message):
     try:
         inviter = message.from_user.mention if message.from_user else "مستخدم غير معروف"
         if message.video_chat_members_invited and message.video_chat_members_invited.users:
             invited_users = "، ".join(f"[{user.first_name}](tg://user?id={user.id})" for user in message.video_chat_members_invited.users)
         else:
             invited_users = "لم يتم العثور على مدعوين"
-        
+
         await message.reply(f"**≯︰قام {inviter} بدعوة: {invited_users}**")
 
     except Exception:
-        pass  
+        pass

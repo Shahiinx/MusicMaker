@@ -21,7 +21,7 @@ from Source.play import panel_buttons
 
 
 @Client.on_callback_query(
-    filters.regex(r"^(pause|skip|stop|resume)$")
+    filters.regex(r"^(pause|skip|stop|resume|MuteBot|UnMuteBot)$")
 )
 async def admin_risghts(client: Client, CallbackQuery):
     try:
@@ -104,6 +104,12 @@ async def admin_risghts(client: Client, CallbackQuery):
             await CallbackQuery.message.reply_photo(photo=img,
                                                     caption=f"**⦿ Skipped Streaming..\n\n◕ 𝖲𝗈𝗇𝗀 𝖭𝖺𝗆𝖾 : {title}\n◕ 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖳𝗂𝗆𝖾 ❲ {dur} ❳\n◕ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖡𝗒 : ❲ {requester} ❳**",
                                                     reply_markup=InlineKeyboardMarkup(button))
+        if command == "MuteBot":
+            await call.mute_stream(chat_id)
+            await callback_query.answer("تم كتم الحساب المساعد", show_alert=True)
+        if command == "UnMuteBot":
+            await call.unmute_stream(chat_id)
+            await callback_query.answer("تم فك كتم الحساب المساعد", show_alert=True)
 
     except Exception as e:
         pass

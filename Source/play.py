@@ -69,7 +69,7 @@ def panel_buttons(ch, dev, devname):
                 icon_custom_emoji_id=5258267368877989660
             ),
             InlineKeyboardButton(
-                text="",
+                text="  ",
                 url=f"{ch}",
 
                 icon_custom_emoji_id=5258073068852485953

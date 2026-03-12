@@ -37,9 +37,10 @@ pyaes==1.6.1
 pyasn1==0.6.2
 pymediainfo-pyrofork==6.0.2
 pymongo==4.16.0
-pyrofork==2.3.69
-Pyrogram==2.0.106
-pyromod==1.5
+#pyrofork==2.3.69
+#Pyrogram==2.0.106
+#pyromod==1.5
+pyromod
 PySocks==1.7.1
 python-dotenv==1.2.2
 requests==2.32.5

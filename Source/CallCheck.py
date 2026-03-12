@@ -76,16 +76,25 @@ async def check_call(client, message):
     except Exception:
         pass
 
-@Client.on_message(filters.video_chat_members_invited)
+@Client.on_message(filters.service)
 async def notify_invite(client, message):
     try:
+        if not message.video_chat_members_invited:
+            return
+
         inviter = message.from_user.mention if message.from_user else "مستخدم غير معروف"
-        if message.video_chat_members_invited and message.video_chat_members_invited.users:
-            invited_users = "، ".join(f"[{user.first_name}](tg://user?id={user.id})" for user in message.video_chat_members_invited.users)
+
+        if message.video_chat_members_invited.users:
+            invited_users = "، ".join(
+                f"[{user.first_name}](tg://user?id={user.id})"
+                for user in message.video_chat_members_invited.users
+            )
         else:
             invited_users = "لم يتم العثور على مدعوين"
 
-        await message.reply(f"**≯︰قام {inviter} بدعوة: {invited_users}**")
+        await message.reply(
+            f"**≯︰قام {inviter} بدعوة: {invited_users}**"
+        )
 
     except Exception:
         pass

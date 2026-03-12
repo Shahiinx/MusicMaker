@@ -44,18 +44,52 @@ from pyrogram.errors import PeerIdInvalid
 def panel_buttons(ch, dev, devname):
     return [
         [
-            InlineKeyboardButton(text="ᎬŃᎠ", callback_data="stop"),
-            InlineKeyboardButton(text="ᎡᎬՏႮᎷᎬ", callback_data="resume"),
-            InlineKeyboardButton(text="ᏢᎪႮՏᎬ", callback_data="pause")
+            InlineKeyboardButton(
+                text="𝗘𝗻𝗱",
+                callback_data="stop",
+                icon_custom_emoji_id=5258084656674250503
+            ),
+            InlineKeyboardButton(
+                text="𝗥𝗲𝘀𝘂𝗺𝗲",
+                callback_data="resume",
+                icon_custom_emoji_id=5260652149469094137
+
+            ),
+            InlineKeyboardButton(
+                text="𝗣𝗮𝘂𝘀𝗲",
+                callback_data="pause",
+                icon_custom_emoji_id=5260249440450520061
+
+            )
         ],
         [
-            InlineKeyboardButton(text="ᏟᎻᎪΝΝᎬᏞ", url=f"{ch}"),
+            InlineKeyboardButton(
+                text="𝗠𝘂𝘁𝗲",
+                callback_data="MuteBot",
+                icon_custom_emoji_id=5258267368877989660
+            ),
+            InlineKeyboardButton(
+                text="",
+                url=f"{ch}",
+
+                icon_custom_emoji_id=5258073068852485953
+            ),
+            InlineKeyboardButton(
+                text="𝗨𝗻𝗺𝘂𝘁𝗲",
+                callback_data="UnMuteBot",
+                icon_custom_emoji_id=5260325873688518261
+            ),
+
         ],
         [
             InlineKeyboardButton(text=f"{devname}", user_id=dev)
         ],
         [
-            InlineKeyboardButton(text="ᏟᏞᎾՏᎬ", callback_data="close_panel")
+            InlineKeyboardButton(
+                text="ᏟᏞᎾՏᎬ",
+                callback_data="close_panel" ,
+                icon_custom_emoji_id=5258130763148172425
+            )
         ]
     ]
 
@@ -302,13 +336,16 @@ async def play(client: Client, message):
         return "./Shahin/default.jpg"
 
     async def send_reply(message, photo, title, duration, requester, videoid, button, position=None, start=False):
-        title = title[:18] if not start else title
+        max_title_length = 15
+        title = (title[:max_title_length] + "…") if len(title) > max_title_length else title
+
         line1 = "Starting Playing Now" if start else f"Added Track To Playlist : {position if position is not None else '0'}"
+
         caption = (
-            f"**⦿ {line1}**\n\n"
-            f"◕ **Song Name:** {title}\n"
-            f"◕ **Duration Time:** {duration}\n"
-            f"◕ **Request By:** {requester}"
+            f"<emoji id=5782785585567507068>🤍</emoji>** {line1}**\n\n"
+            f"⌯ **Song Name:** {title}\n"
+            f"⌯ **Duration Time:** {duration}\n"
+            f"⌯ **Request By:** {requester}"
         )
         if not photo or not os.path.exists(photo):
             photo = "./Shahin/default.jpg"

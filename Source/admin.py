@@ -106,10 +106,10 @@ async def admin_risghts(client: Client, CallbackQuery):
                                                     reply_markup=InlineKeyboardMarkup(button))
         if command == "MuteBot":
             await call.mute_stream(chat_id)
-            await callback_query.answer("تم كتم الحساب المساعد", show_alert=True)
+            await CallbackQuery.answer("تم كتم الحساب المساعد", show_alert=True)
         if command == "UnMuteBot":
             await call.unmute_stream(chat_id)
-            await callback_query.answer("تم فك كتم الحساب المساعد", show_alert=True)
+            await CallbackQuery.answer("تم فك كتم الحساب المساعد", show_alert=True)
 
     except Exception as e:
         pass

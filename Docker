@@ -14,8 +14,6 @@ RUN pip install pyromod
 RUN pip install py-tgcalls==0.9.7
 RUN pip install -r requirements.txt
 RUN pip uninstall pyrogram
-RUN pip install pyrotgfork
-RUN pip install pyromod
-RUN pip install py-tgcalls==0.9.7
+
 
 CMD ["python3", "main.py"]

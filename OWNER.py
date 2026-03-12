@@ -13,9 +13,9 @@ BOT_TOKEN = "8781305346:AAFK2isOgkoClNfFn0wktuUPl_ImWy-rxig"
 #مونجو
 DATABASE = "mongodb+srv://zeu2ss1h:iaBXAWWaMP8VawSX@cluster0.ptrlmhg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 #قناة سورس
-CHANNEL = "https://t.me/QIYYY"
+CHANNEL = "https://t.me/QIYYYY"
 #كروب سورس
-GROUP = "https://t.me/QIYYY"
+GROUP = "https://t.me/QIYYYY"
 #فيديو سورس اذا ماعندك خليه
 VIDEO = "https://t.me/SY_RX/712"
 #صورة سورس اذا ماعندك خليها

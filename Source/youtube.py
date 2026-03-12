@@ -90,12 +90,41 @@ async def downloaded(client: Client, message: Message):
             except: pass
 
         unique_id = uuid.uuid4().hex
+        # ydl_opts = {
+        #     'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]',
+        #     'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
+        #     'noplaylist': True,
+        #     'quiet': True,
+        #     'cookiefile': cookies_file,
+        #     'merge_output_format': 'mp4' if is_video else None,
+        # }
         ydl_opts = {
-            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]',
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]/bestaudio/best',
             'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
             'noplaylist': True,
             'quiet': True,
+
+            # cookies
             'cookiefile': cookies_file,
+
+            # مهم لتجاوز bot detection
+            'nocheckcertificate': True,
+            'ignoreerrors': True,
+
+            'http_headers': {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
+            },
+
+            # يجعل yt-dlp يستخدم client مختلف من يوتيوب
+            'extractor_args': {
+                'youtube': {
+                    'player_client': ['android', 'web']
+                }
+            },
+
+            # تسريع التحميل
+            'concurrent_fragment_downloads': 5,
+
             'merge_output_format': 'mp4' if is_video else None,
         }
 

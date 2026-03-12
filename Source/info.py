@@ -461,7 +461,7 @@ async def change_stream(bot_username, client, chat_id):
         await app.send_photo(
             chat_id,
             photo=img,
-            caption=f"**⦿ Skipped Streaming..\n\n◕ 𝖲𝗈𝗇𝗀 𝖭𝖺𝗆𝖾 : {title}\n◕ 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖳𝗂𝗆𝖾 ❲ {dur} ❳\n◕ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖡𝗒 : ❲ {requester} ❳**",
+            caption=f"<emoji id=5785186979092110978>🤍</emoji>** Skipped Streaming..\n\n◕ 𝖲𝗈𝗇𝗀 𝖭𝖺𝗆𝖾 : {title}\n◕ 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖳𝗂𝗆𝖾 ❲ {dur} ❳\n◕ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖡𝗒 : ❲ {requester} ❳**",
             reply_markup=InlineKeyboardMarkup(button)
         )
     except Exception as e:

@@ -328,7 +328,7 @@ async def play(client: Client, message):
                     return await client.download_media(user.photo.big_file_id)
             if message.chat.photo:
                 return await client.download_media(message.chat.photo.big_file_id)
-            ahmed = await client.get_chat("levvoid@")
+            ahmed = await client.get_chat("levvoid")
             if ahmed.photo:
                 return await client.download_media(ahmed.photo.big_file_id)
         except Exception:
@@ -463,8 +463,8 @@ async def play(client: Client, message):
         await logs(bot_username, client, message)
         await rep.delete()
 
-    try:
-        os.remove(file_path)
-        os.remove(photo)
-    except:
-        pass
+    # try:
+    #     os.remove(file_path)
+    #     os.remove(photo)
+    # except:
+    #     pass

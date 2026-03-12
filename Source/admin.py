@@ -102,7 +102,7 @@ async def admin_risghts(client: Client, CallbackQuery):
             requester = userx.mention
             button = panel_buttons(ch, dev, devname)
             await CallbackQuery.message.reply_photo(photo=img,
-                                                    caption=f"**⦿ Skipped Streaming..\n\n◕ 𝖲𝗈𝗇𝗀 𝖭𝖺𝗆𝖾 : {title}\n◕ 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖳𝗂𝗆𝖾 ❲ {dur} ❳\n◕ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖡𝗒 : ❲ {requester} ❳**",
+                                                    caption=f"<emoji id=5785186979092110978>🤍</emoji>** Skipped Streaming..\n\n◕ 𝖲𝗈𝗇𝗀 𝖭𝖺𝗆𝖾 : {title}\n◕ 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖳𝗂𝗆𝖾 ❲ {dur} ❳\n◕ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖡𝗒 : ❲ {requester} ❳**",
                                                     reply_markup=InlineKeyboardMarkup(button))
         if command == "MuteBot":
             await call.mute_stream(chat_id)
@@ -227,7 +227,7 @@ async def admin_risght(client: Client, message):
             devname = await get_dev_name(client, bot_username)
             button = panel_buttons(ch, dev, devname)
             await message.reply_photo(photo=img,
-                                      caption=f"**⦿ Skipped Streaming..\n\n◕ 𝖲𝗈𝗇𝗀 𝖭𝖺𝗆𝖾 : {title}\n◕ 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖳𝗂𝗆𝖾 ❲ {dur} ❳\n◕ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖡𝗒 : ❲ {requester} ❳**",
+                                      caption=f"<emoji id=5785186979092110978>🤍</emoji>** Skipped Streaming..\n\n◕ 𝖲𝗈𝗇𝗀 𝖭𝖺𝗆𝖾 : {title}\n◕ 𝖣𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖳𝗂𝗆𝖾 ❲ {dur} ❳\n◕ 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖡𝗒 : ❲ {requester} ❳**",
                                       reply_markup=InlineKeyboardMarkup(button))
 
         else:

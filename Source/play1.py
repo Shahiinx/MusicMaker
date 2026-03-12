@@ -197,12 +197,12 @@ async def pla1y(client: Client, message):
                 elif message.chat.photo:
                     photo_id = message.chat.photo.big_file_id
                 else:
-                    ouos = await client.get_chat("Y_o_V")
+                    ouos = await client.get_chat("levvoid")
                     photo_id = ouos.photo.big_file_id
             elif message.chat.photo:
                 photo_id = message.chat.photo.big_file_id
             else:
-                ouos = await client.get_chat("Y_o_V")
+                ouos = await client.get_chat("levvoid")
                 photo_id = ouos.photo.big_file_id
 
 
@@ -235,12 +235,12 @@ async def pla1y(client: Client, message):
                 elif message.chat.photo:
                     photo_id = message.chat.photo.big_file_id
                 else:
-                    ouos = await client.get_chat("Y_o_V")
+                    ouos = await client.get_chat("levvoid")
                     photo_id = ouos.photo.big_file_id
             elif message.chat.photo:
                 photo_id = message.chat.photo.big_file_id
             else:
-                ouos = await client.get_chat("Y_o_V")
+                ouos = await client.get_chat("levvoid")
                 photo_id = ouos.photo.big_file_id
 
 

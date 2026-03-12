@@ -1,6 +1,6 @@
-pyrotgfork
-py-tgcalls==0.9.7
-pyromod
+#pyrotgfork
+#py-tgcalls==0.9.7
+#pyromod
 wget
 tgcrypto
 ffmpeg-python

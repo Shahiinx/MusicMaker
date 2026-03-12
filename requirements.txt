@@ -69,7 +69,6 @@ pyaes==1.6.1
 pyasn1==0.6.2
 Pygments==2.19.2
 pymongo==4.16.0
-Pyrogram==2.0.106
 pyromod==1.5
 pyrotgfork==2.2.21
 PySocks==1.7.1

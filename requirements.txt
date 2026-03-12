@@ -1,12 +1,6 @@
---no-deps
 pyrotgfork
-
---no-deps
 py-tgcalls==0.9.7
-
---no-deps
 pyromod
-
 wget
 tgcrypto
 ffmpeg-python

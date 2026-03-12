@@ -11,7 +11,7 @@ RUN pip install --upgrade pip
 
 RUN pip install pyrotgfork
 RUN pip install pyromod --no-deps
-RUN pip install py-tgcalls==0.9.7 --no-deps
+RUN pip install py-tgcalls==0.9.7
 RUN pip install -r requirements.txt
 
 

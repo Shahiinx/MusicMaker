@@ -21,7 +21,7 @@ psutil
 future
 speedtest-cli
 pymongo[srv]
-pyromod~=1.5
+pyromod
 deep_translator
 youtube_search
 telethon

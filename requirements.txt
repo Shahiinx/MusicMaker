@@ -40,6 +40,7 @@ pymongo==4.16.0
 #pyrofork==2.3.69
 #Pyrogram==2.0.106
 #pyromod==1.5
+pyrotgfork
 pyromod
 PySocks==1.7.1
 python-dotenv==1.2.2
@@ -61,3 +62,7 @@ yarl==1.23.0
 youtube-search==2.2.0
 youtube-search-python==1.6.6
 yt-dlp @ git+https://github.com/yt-dlp/yt-dlp@b8058cdf378cbbf60669b665dea146fb7dc90117
+
+
+
+

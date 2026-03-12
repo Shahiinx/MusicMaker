@@ -1,8 +1,15 @@
+--no-deps
+pyrotgfork
+
+--no-deps
+py-tgcalls==0.9.7
+
+--no-deps
+pyromod
+
 wget
 tgcrypto
 ffmpeg-python
-py-tgcalls==0.9.7
-pyrotgfork
 youtube-search
 youtube-search-python
 python-dotenv
@@ -21,7 +28,6 @@ psutil
 future
 speedtest-cli
 pymongo[srv]
-pyromod
 deep_translator
 youtube_search
 telethon

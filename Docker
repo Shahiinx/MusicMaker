@@ -5,9 +5,9 @@ RUN apt-get update && apt-get upgrade -y
 # install ffmpeg + curl
 RUN apt-get install -y ffmpeg curl
 
-# install latest nodejs (important for yt-dlp JS challenge)
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-RUN apt-get install -y nodejs
+RUN curl -fsSL https://deno.land/install.sh | sh
+ENV DENO_INSTALL="/root/.deno"
+ENV PATH="$DENO_INSTALL/bin:$PATH"
 
 WORKDIR /app
 

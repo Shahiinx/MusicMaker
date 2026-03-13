@@ -1,32 +1,19 @@
-FROM python:3.10-slim
+FROM python:3.10
 
-# تثبيت الأدوات الأساسية
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y curl ffmpeg build-essential git && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y ffmpeg nodejs npm
 
-# تثبيت nvm و Node.js LTS
-ENV NVM_DIR=/root/.nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
-    . "$NVM_DIR/nvm.sh" && \
-    nvm install --lts && \
-    nvm alias default lts/* && \
-    nvm use default
-
-# ضبط PATH لـ Node.js
-ENV PATH=$NVM_DIR/versions/node/v24.14.0/bin:$PATH
-
-# إعداد المجلد الرئيسي
 WORKDIR /app
+
 COPY . /app
 
-# تحديث pip وتثبيت المكتبات
 RUN pip install --upgrade pip
+
 RUN pip install pyrotgfork
 RUN pip install pyromod --no-deps
 RUN pip install py-tgcalls==0.9.7
 RUN pip install -U "yt-dlp[default]"
 RUN pip install -r requirements.txt
 
-# أمر التشغيل
+
 CMD ["python3", "main.py"]

@@ -9,7 +9,7 @@ OWNER_NAME = "الــشَّــاهِــيــنْ"
 #اسم التي سيظهر على صورة
 infophoto = "الــشَّــاهِــيــنْ Playing"
 #توكن
-BOT_TOKEN = "8781305346:AAFK2isOgkoClNfFn0wktuUPl_ImWy-rxig"
+BOT_TOKEN = "8620196462:AAH8zh2jB3_IpdF9yLlnU4a_qdmZvx-2vR0"
 #مونجو
 DATABASE = "mongodb+srv://zeu2ss1h:iaBXAWWaMP8VawSX@cluster0.ptrlmhg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 #قناة سورس

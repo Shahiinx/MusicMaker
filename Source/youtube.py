@@ -96,6 +96,8 @@ async def downloaded(client: Client, message: Message):
             'noplaylist': True,
             'quiet': True,
             'cookiefile': cookies_file,
+            'geo_bypass': True,
+            'nocheckcertificate': True,
             'merge_output_format': 'mp4' if is_video else None,
         }
 

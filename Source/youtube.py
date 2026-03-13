@@ -91,25 +91,15 @@ async def downloaded(client: Client, message: Message):
 
         unique_id = uuid.uuid4().hex
         #ydl_opts = {
-        #    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]/bestaudio/best',
-        #    'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
-        #    'noplaylist': True,
-        #    'quiet': True,
-        #    'cookiefile': cookies_file,
-        #    'merge_output_format': 'mp4' if is_video else None,
-        #}
-        ydl_opts = {
-    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]/bestaudio/best',
-    'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
-    'noplaylist': True,
-    'quiet': True,
-    'merge_output_format': 'mp4' if is_video else None,
-    'extractor_args': {
-        'youtube': {
-            'player_client': ['android', 'web']
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]/bestaudio/best',
+            'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
+            'noplaylist': True,
+            'quiet': True,
+            'cookiefile': cookies_file,
+            'merge_output_format': 'mp4' if is_video else None,
         }
-    }
-}
+
+        
 
         loop = asyncio.get_running_loop()
         try:

@@ -91,17 +91,21 @@ async def downloaded(client: Client, message: Message):
 
         unique_id = uuid.uuid4().hex
         ydl_opts = {
-            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]/bestaudio/best',
+            'format': 'bestvideo+bestaudio/best' if is_video else 'bestaudio/best',
             'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
-            'noplaylist': True,
             'quiet': True,
+            'noplaylist': True,
             'cookiefile': cookies_file,
-            'merge_output_format': 'mp4' if is_video else None,
-                'extractor_args': {
-        'youtube': {
-            'player_client': ['android']
-        }
-    }
+        
+            'http_headers': {
+                'User-Agent': 'Mozilla/5.0'
+            },
+        
+            'extractor_args': {
+                'youtube': {
+                    'player_client': ['android']
+                }
+            }
         }
 
         

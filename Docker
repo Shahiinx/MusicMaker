@@ -17,7 +17,7 @@ COPY . /app
 RUN pip install --upgrade pip
 
 # install yt-dlp latest
-RUN pip install -U yt-dlp
+RUN pip install -U "yt-dlp[default]"
 
 # telegram libs
 RUN pip install pyrotgfork

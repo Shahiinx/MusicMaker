@@ -1,19 +1,30 @@
 FROM python:3.10
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y ffmpeg nodejs npm
+
+# install ffmpeg + curl
+RUN apt-get install -y ffmpeg curl
+
+# install latest nodejs (important for yt-dlp JS challenge)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
 
 WORKDIR /app
 
 COPY . /app
 
+# upgrade pip
 RUN pip install --upgrade pip
 
+# install yt-dlp latest
+RUN pip install -U yt-dlp
+
+# telegram libs
 RUN pip install pyrotgfork
 RUN pip install pyromod --no-deps
 RUN pip install py-tgcalls==0.9.7
-RUN pip install -U "yt-dlp[default]"
-RUN pip install -r requirements.txt
 
+# requirements
+RUN pip install -r requirements.txt
 
 CMD ["python3", "main.py"]

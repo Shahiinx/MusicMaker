@@ -99,7 +99,7 @@ async def downloaded(client: Client, message: Message):
         #    'merge_output_format': 'mp4' if is_video else None,
         #}
         ydl_opts = {
-    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio/best',
+    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]/bestaudio/best',
     'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
     'noplaylist': True,
     'quiet': True,

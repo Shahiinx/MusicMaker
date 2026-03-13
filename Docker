@@ -1,30 +1,37 @@
 FROM python:3.10
 
+# تحديث النظام
 RUN apt-get update && apt-get upgrade -y
 
-# install ffmpeg + curl
-RUN apt-get install -y ffmpeg curl
+# تثبيت أدوات أساسية
+RUN apt-get install -y ffmpeg curl git gnupg2
 
+# تثبيت Node.js 20 بشكل صحيح
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && node -v \
+    && npm -v
+
+# تثبيت Deno
 RUN curl -fsSL https://deno.land/install.sh | sh
 ENV DENO_INSTALL="/root/.deno"
 ENV PATH="$DENO_INSTALL/bin:$PATH"
 
 WORKDIR /app
-
 COPY . /app
 
-# upgrade pip
+# تحديث pip
 RUN pip install --upgrade pip
 
-# install yt-dlp latest
+# تثبيت yt-dlp مع EJS scripts
 RUN pip install -U "yt-dlp[default]"
 
-# telegram libs
+# مكتبات التليجرام
 RUN pip install pyrotgfork
 RUN pip install pyromod --no-deps
 RUN pip install py-tgcalls==0.9.7
 
-# requirements
+# باقي المتطلبات
 RUN pip install -r requirements.txt
 
 CMD ["python3", "main.py"]

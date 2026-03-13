@@ -26,4 +26,3 @@ deep_translator
 youtube_search
 telethon
 httpx==0.23.3
-git+https://github.com/yt-dlp/yt-dlp

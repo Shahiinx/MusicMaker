@@ -95,13 +95,8 @@ async def downloaded(client: Client, message: Message):
             'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
             'noplaylist': True,
             'quiet': True,
-            #'cookiefile': cookies_file,
+            'cookiefile': cookies_file,
             'merge_output_format': 'mp4' if is_video else None,
-            'extractor_args':{
-                'youtube':{
-                    'player_client':['android','web']
-                }
-            }
         }
 
         

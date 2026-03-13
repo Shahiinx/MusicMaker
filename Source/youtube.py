@@ -90,7 +90,7 @@ async def downloaded(client: Client, message: Message):
             except: pass
 
         unique_id = uuid.uuid4().hex
-        #ydl_opts = {
+        ydl_opts = {
             'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' if is_video else 'bestaudio[ext=m4a]/bestaudio/best',
             'outtmpl': f'{downloads_path}/{unique_id}.%(ext)s',
             'noplaylist': True,

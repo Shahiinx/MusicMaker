@@ -314,11 +314,22 @@ async def must_join(bot_username: str):
         return must_value
     return "معطل"
 
+#async def set_must(bot_username: str, m: str):
+#    must_value = "مفعل" if m != "❲ تعطيل الاشتراك الإجباري ❳" else "معطل"
+#    must[bot_username] = must_value
+#    await mustdb.update_one({"bot_username": bot_username}, {"$set": {"getmust": must_value}}, upsert=True)
+
 async def set_must(bot_username: str, m: str):
-    must_value = "مفعل" if m != "❲ تعطيل الاشتراك الإجباري ❳" else "معطل"
+    # إصلاح المنطق المعكوس
+    must_value = "مفعل" if m == "❲ تفعيل الاشتراك الإجباري ❳" else "معطل"
     must[bot_username] = must_value
-    await mustdb.update_one({"bot_username": bot_username}, {"$set": {"getmust": must_value}}, upsert=True)
-    
+    await mustdb.update_one(
+        {"bot_username": bot_username}, 
+        {"$set": {"getmust": must_value}}, 
+        upsert=True
+    )
+
+            
 @Client.on_message(filters.command(["❲ تعطيل الاشتراك الإجباري ❳", "❲ تفعيل الاشتراك الإجباري ❳"], ""))
 async def set_join_must(client: Client, message):
     user_id = message.from_user.id  

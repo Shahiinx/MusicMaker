@@ -380,8 +380,8 @@ async def play(client: Client, message):
             if not response.get("result"):
                 return await rep.edit("**≯︰تعذر العثور على الفيديو أو لم يتم التعرف عليه .**")
             result = response["result"][0]
-        except Exception:
-            return await rep.edit("**≯︰حدث خطأ أثناء البحث عن الفيديو .**")
+        except Exception as e:
+            return await rep.edit(f"**≯︰حدث خطأ أثناء البحث عن الفيديو .** {e}")
 
         title, duration, videoid, yturl = result["title"], result["duration"], result["id"], result["link"]
         vid = "v" in message.command[0] or "ف" in message.command[0]
